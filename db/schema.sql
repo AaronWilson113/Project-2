@@ -9,6 +9,5 @@ CREATE TABLE user (
     current_weight INT NOT NULL, 
     goal_weight INT NOT NULL, 
     target_calories INT NOT NULL, 
-    workouts VARCHAR(30) NOT NULL,
-    
-),
+    workouts VARCHAR(30) NOT NULL
+);

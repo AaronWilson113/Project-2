@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AaronWilson113/Project-2#readme",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.4"

@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
+const sequelize = require('./config/connection')
+
 app.get('/', function(req, res) {
   res.get('')
 });

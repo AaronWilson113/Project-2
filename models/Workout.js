@@ -9,4 +9,14 @@ Workout.init({
         type: DataTypes.STRING
     }
 
-});
+},
+{
+    sequelize,
+
+    timestamps: false, 
+    underscored: true,
+    modelName: 'Workout'
+}
+);
+
+module.exports = Workout;

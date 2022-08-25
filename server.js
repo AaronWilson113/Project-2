@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
-const sequelize = require('./config/connection')
+const sequelize = require('./config/connection');
+
+const User = require('./models/User');
+const Workout = require('./models/Workout');
 
 app.get('/', function(req, res) {
   res.get('')
 });
 
-app.listen(port, function() {
-  console.log('Server listening on: http://localhost:' + port)
+sequelize.sync({ force: true }).then (() => {
+  app.listen(port, () => console.log('Now listening'));
 });

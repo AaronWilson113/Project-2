@@ -5,6 +5,12 @@ class Workout extends Model {}
 
 Workout.init({
 
+    workoutId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+
     workoutName: {
         type: DataTypes.STRING
     }

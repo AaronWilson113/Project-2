@@ -12,8 +12,31 @@ Workout.init({
     },
 
     workoutName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    
+    calories: {
+        type: DataTypes.INTEGER
+    },
+
+    repsDone: {
+        type: DataTypes.INTEGER
+    }, 
+
+    weight: {
+        type: DataTypes.INTEGER
+    }, 
+
+    time: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+
+    notes: {
         type: DataTypes.STRING
     }
+    
 
 },
 {

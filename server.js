@@ -1,39 +1,53 @@
-const path = require('path');
+//importing required modules for server.js file, ie: express
 const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
-
+const path = require('path');
 const sequelize = require('./config/connection');
+const routes = require('./controller');
+const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const exphbs = require('express-handlebars');
+require('dotenv').config();
 
+
+//sets up my server object
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
-const hbs = exphbs.create({ helpers });
+//setting up handlebars
 
+//const hbs = exphbs.create({ helpers });
+
+// setting up sessions
 const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
+  secret: "string",
+  cookie: {
+    maxAge: 86400,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
-app.use(session(sess));
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-
+app.use(session(sess)); 
+// middleware designates any requests from the public folder to be returned 
+app.use(express.static('public'));
+// middleware that includes handling that will convert your json data into and object
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+// middleware that parses out url information (how forms submit there data)
+app.use(express.urlencoded())
+
+//importing models to sync with database
+const User = require('./models/User');
+const { strict } = require('assert');
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+//turns on our app and sends our optional confirmation out after we use sequelize.sync to sync our database
+sequelize.sync().then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });

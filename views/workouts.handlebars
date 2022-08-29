@@ -1,0 +1,27 @@
+<div>
+    <h2>Workouts</h2>
+</div>
+
+<div>
+    <h3>Add Workout</h3>
+    <div>
+        <form>
+            <label for="workoutName">Workout Name</label>
+            <input type="text" id="workoutName" name="workoutName">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<div>
+    <h3>Added Workouts</h3>
+    {{#each workout as |workout|}}
+    <div>
+        <h3>{{workout.name}}</h3>
+        <ul>
+            <li>{{workout.lastRep}}</li>
+            <li>{{workout.lastWeight}}</li>
+        </ul>
+    </div>
+    {{/each}}
+</div>

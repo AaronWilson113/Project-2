@@ -1,0 +1,50 @@
+<div>
+    <h2>User Information</h2>
+    <p>Current Weight: {{if weightInput}}
+        {{user.weight}}</p>
+        {{else}}
+        <form>
+            <label for="currentWeight">Current Weight</label>
+            <input type="text" id="currentWeight" name="currentWeight">
+            <input type="submit" value="Submit">
+        </form>
+        {{/if}}
+    <p>Goal Weight: {{if goalWeightInput}}
+        {{user.goal}}</p>
+        {{else}}
+        <form>
+            <label for="goalWeight">Goal Weight</label>
+            <input type="text" id="goalWeight" name="goalWeight">
+            <input type="submit" value="Submit">
+        </form>
+        {{/if}}
+    <p>Target Calories: {{if calorieInput}}
+        {{user.calories}}</p>
+        {{else}}
+        <form>
+            <label for="calorieInput">Target Calories</label>
+            <input type="text" id="calories" name="calorieInput">
+            <input type="submit" value="Submit">
+        </form>
+        {{/if}}
+</div>
+
+<div>
+    <h2>Workouts</h2>
+    {{#each workout as |workout|}}
+    <div>
+        <h3>{{workout.name}}</h3>
+        <form>
+            <label for="reps">Reps</label>
+            <input type="text" id="reps" name="reps">
+            <input type="submit" value="Submit">
+        </form>
+        <form></form>
+            <label for="weight">Weight</label>
+            <input type="text" id="weight" name="weight">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    {{/each}}
+    <button type="button">Go To Workouts</button>
+</div>

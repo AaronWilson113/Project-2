@@ -6,6 +6,7 @@ const routes = require('./controller');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 require('dotenv').config();
 
 
@@ -13,13 +14,15 @@ require('dotenv').config();
 const app = express();
 const PORT = 3001;
 
+
 //setting up handlebars
+app.set('view engine', 'handlebars');
 
 //const hbs = exphbs.create({ helpers });
 
 // setting up sessions
 const sess = {
-  secret: "string",
+  secret: process.env.SESS_SECRET,
   cookie: {
     maxAge: 86400,
     httpOnly: true,
@@ -41,6 +44,11 @@ app.use(express.json());
 // middleware that parses out url information (how forms submit there data)
 app.use(express.urlencoded())
 
+// setting up handlebars as the default engine
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+
 //importing models to sync with database
 const User = require('./models/User');
 const { strict } = require('assert');
@@ -51,3 +59,7 @@ app.use(routes);
 sequelize.sync().then(() => {
     app.listen(PORT, () => console.log('Now listening'));
   });
+
+  app.get('/', (req, res) => {
+    res.render('homepage');
+  })

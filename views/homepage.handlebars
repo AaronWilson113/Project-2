@@ -1,40 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-​
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Overview</title>
-</head>
-​
-<body>
-​
-</body>
-<!----Main Container--->
-<div class="container">
-    <div class="header">
-        <!-- Navigation Bar -->
-        <div class="title"> Title</div>
-        <div class="navigation"> Navigation</div>
-    </div>
-    <!--  -->
-​
-    <!-- ABOUT -->
-    <div class="about"> About the Site</div>
-    <!-- Daily Overview -->
-    <div class="dailyOverview">Daily Overview</div>
-    <!-- Signup/Login Button -->
-    <div class="overviewButtons">
-        <form action="index.html">
-​
-            <div class="button"><input type="submit" name="submit" value="SignUp"></div>
-            <div class="button"><input type="submit" name="submit" value="Login"></div>
-        </form>
-    </div>
-​
-​
+<!-- ABOUT -->
+<div class="container-fluid text-center border border-dark">
+    <h2 class="text-decoration-underline">About Us</h2>
+    <p>This site is designed to help the every day person track their workout progress. With the help of a NPM package called Traindown, we enable the user to create a workout day, such as leg day, arms, back, ect. and assign different exercises to that day. Beyond that, you will be able to input the amount of reps that you did and for what weight. We also allow the user to track their weight. Starting with their current weight and their goal weight so that they can see the progress as they keep going.</p>
 </div>
-​
-</html>
+<!-- Daily Overview -->
+<div class="container-fluid text-center">
+    <h2 class="text-decoration-underline">Daily Overview</h2>
+    <div>
+        {{#if logged_in}}
+        <div class="container-fluid text-center">
+            <ul>
+                <li>{{user.currentWeight}}</li>
+                <li>{{user.goalWeight}}</li>
+            </ul>
+        </div>
+        {{else}}
+        <div>
+            <button>Log In</button>
+        </div>
+        {{/if}}
+    </div>
+</div>

@@ -1,46 +1,46 @@
-<div class="logIn">
+<div class="container-fluid text-center">
     <form>
         <div>
             <label for="userName" class="form-label">Username</label>
             <input type="text" class="form-control" id="userName">
         </div>
         <div>
-            <label for="password" class="form-label">Passowrd</label>
+            <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password">
-        </div>
+        </div> <br><br>
         <button type="submit" class="btn btn-primary">Log In</button>
     </form>
-</div>
-<div class="signup">
-    <form action="" method="POST">
-        <div class="user-details">
+</div> <br><br>
+<div class="container-fluid text-center">
+    <form class="continer-fluid text-center">
+        <div class="text-center">
             <!-- Input Box -->
             <div class="input-box">
-                <span class="details">  First Name: </span>
-                <input type="text" name="firstname" placeholder="Enter Your First Name"> <br><br>
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" id="firstname" placeholder="Enter Your First Name" class="form-control"> <br><br>
             </div>
 
             <div class="input-box">
-                <span class="details">   Last Name: </span>
-                <input type="text" name="lastname" placeholder="Enter Your Last Name"> <br><br> 
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" id="lastname" placeholder="Enter Your Last Name" class="form-control"> <br><br> 
             </div>
 
             <div class="input-box">
-                <span class="details"> Username<br> </span>
-                <input type="text" name="userName" placeholder="Enter a Username"> <br><br> 
+                <label for="userName" class="form-label">Username</label>
+                <input type="text" id="userName" placeholder="Enter a Username" class="form-control"> <br><br> 
             </div>
 
             <div class="input-box">
-                <span class="details">    Password: </span>
-                <input type="password" name="password" placeholder="Password">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" placeholder="Password" class="form-control"> <br><br>
             </div>
 
             <div class="input-box">
-                <span class="details">   Confirm Password:</span>
-                <input type="password" name="cpass" placeholder="Confirm Password">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control">
             </div>
 
-        </div>
+        </div> <br><br>
 
         <!-- Signup Button -->
         <button type="submit" class="btn btn-primary">Sign Up</button>

@@ -1,26 +1,26 @@
-<div>
+<div class="container-fluid text-center">
     <h2>User Information</h2>
-    <p>Current Weight: {{if weightInput}}
-        {{user.weight}}</p>
+    <p>Current Weight:</p> {{#if weightInput}}
+        <p>{{user.weight}}</p>
         {{else}}
         <form>
-            <label for="currentWeight">Current Weight</label>
-            <input type="text" id="currentWeight" name="currentWeight">
-            <input type="submit" value="Submit">
+            <label for="currentWeight" class="form-label">Current Weight</label>
+            <input type="text" id="currentWeight" class="form-control"> <br><br>
+            <input type="submit" class="btn btn-primary">
         </form>
-        {{/if}}
-    <p>Goal Weight: {{if goalWeightInput}}
+        {{/if}} <br></br>
+    <p>Goal Weight: {{#if goalWeightInput}}
         {{user.goal}}</p>
         {{else}}
         <form>
-            <label for="goalWeight">Goal Weight</label>
-            <input type="text" id="goalWeight" name="goalWeight">
-            <input type="submit" value="Submit">
+            <label for="goalWeight" class="form-label">Goal Weight</label>
+            <input type="text" id="goalWeight" class="form-control"> <br><br>
+            <input type="submit" class="btn btn-primary">
         </form>
         {{/if}}
 </div>
-
-<div>
+<br><br>
+<div class="container-fluid text-center">
     <h2>Workouts</h2>
     {{#each workout as |workout|}}
     <div>
@@ -49,5 +49,5 @@
         </div>
     </div>
     {{/each}}
-    <button type="button">Go To Workouts</button>
+    <button type="button" class="btn btn-primary">Go To Workouts</button>
 </div>

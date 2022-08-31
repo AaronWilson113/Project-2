@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+​
+body {
+    height: 100vh;
+    background: linear-gradient(#e66465, #9198e5);
+}
+​
+​
+/* Navigationn Bar Styling Start */
+​
+.header .navigation {
+    float: right;
+}
+​
+.header .title {
+    float: left;
+}
+​
+.header {
+    font-size: 20px;
+    background: #f2f2f2;
+    border: 2px solid #f2f2f2;
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    height: 8vh;
+}
+​
+​
+/*  Navigationn Bar Styling End */
+​
+​
+/* Main Div Styling Start */
+​
+.main {
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin: 3rem 0rem 0rem 20rem;
+    height: 80vh;
+}
+​
+.main a:hover {
+    border-bottom: 3px solid red;
+}
+​
+.main a.active {
+    border-bottom: 3px solid red;
+}
+​
+.main .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+​
+.signup {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 70vh;
+}
+​
+.main a {
+    padding: 0rem 1rem;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+​
+​
+/* Main Div Styling End */
+​
+​
+/* Overview Page Styling Start */
+​
+.container .about {
+    font-size: 20px;
+    background: #f2f2f2;
+    border: 2px solid #f2f2f2;
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+​
+.container .dailyOverview {
+    font-size: 20px;
+    background: #f2f2f2;
+    border: 2px solid #f2f2f2;
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+​
+.overviewButtons {
+    font-size: 20px;
+    background: #f2f2f2;
+    border: 2px solid #f2f2f2;
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+​
+.overviewButtons form .button {
+    height: 45px;
+    margin: 25px 0px;
+}
+​
+.overviewButtons form .button input {
+    height: 100%;
+    width: 200%;
+    outline: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+​
+.overviewButtons form .button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+​
+​
+/* Overview Page Styling End */
+​
+​
+/* Form Styling Start */
+​
+.main form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+​
+form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100%/2 - 20px);
+}
+​
+form .user-details .gender-details {
+    margin: 20px 0 12px 0;
+    width: calc(100%/2 - 20px);
+}
+​
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 1px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+​
+.user-details .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+​
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #9b59b6;
+}
+​
+form .gender-details .gender title {
+    font-size: 20px;
+    font-weight: 500;
+}
+​
+form .gender-details .category {
+    width: 80%;
+    justify-content: space-between;
+    margin: 14px 0;
+}
+​
+form .button {
+    height: 45px;
+    margin: 45px 0;
+}
+​
+form .button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+​
+form .button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 974px) {
+    .main {
+        max-width: 100%;
+        position: relative;
+        right: 18rem;
+    }
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%
+    }
+    .main form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+}

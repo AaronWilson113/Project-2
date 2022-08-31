@@ -1,0 +1,55 @@
+<div>
+    <h2>Workouts</h2>
+</div>
+
+<div>
+    <h3>Add Workout</h3>
+    <div>
+        <form>
+            <div>
+                <label for="workoutName">Workout Name</label>
+                <input type="text" id="workoutName" name="workoutName">
+            </div>
+            <div>
+                <label for="exOne" class="form-label">Exercise One</label>
+                <input type="text" class="form-control" id="exOne">
+            </div>
+            <div>
+                <label for="exTwo" class="form-label">Exercise Two</label>
+                <input type="text" class="form-control" id="exTwo">
+            </div>
+            <div>
+                <label for="exThree" class="form-label">Exercise Three</label>
+                <input type="text" class="form-control" id="exThree">
+            </div>
+            <div>
+                <label for="exFour" class="form-label">Exercise Four</label>
+                <input type="text" class="form-control" id="exFour">
+            </div>
+            <div>
+                <label for="exFive" class="form-label">Exercise Five</label>
+                <input type="text" class="form-control" id="exFive">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <h3>Added Workouts</h3>
+    {{#each workout as |workout|}}
+    <div>
+        <h3>{{workout.workoutName}}</h3>
+        <ul>
+            <li>{{workout.exOne}}</li>
+            <li>{{workout.exTwo}}</li>
+            <li>{{workout.exThree}}</li>
+            <li>{{workout.exFour}}</li>
+            <li>{{workout.exFive}}</li>
+            <li>{{workout.caloriesBurned}}</li>
+            <li>{{workout.timeNeeded}}</li>
+            <li>{{workout.notes}}</li>
+        </ul>
+    </div>
+    {{/each}}
+</div>

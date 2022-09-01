@@ -4,8 +4,16 @@
     <p>This site is designed to help the every day person track their workout progress. With the help of a NPM package called Traindown, we enable the user to create a workout day, such as leg day, arms, back, ect. and assign different exercises to that day. Beyond that, you will be able to input the amount of reps that you did and for what weight. We also allow the user to track their weight. Starting with their current weight and their goal weight so that they can see the progress as they keep going.</p>
 </div>
 <!-- Daily Overview -->
+
 <div class="container-fluid text-center">
     <h2 class="text-decoration-underline">Daily Overview</h2>
+    <h3>Weather</h3>
+    <div class="Weather">
+     <div id="temp"></div>
+     <div id="clouds"></div>
+     <div id="wind"></div>
+     <div id="wind_dir"></div>
+    </div>
     <div>
         {{#if logged_in}}
         <div class="container-fluid text-center">
@@ -21,5 +29,5 @@
         {{/if}}
     </div>
 </div>
-
+<script src="/js/weatherAPI.js"></script>
 </html>

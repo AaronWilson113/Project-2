@@ -14,8 +14,46 @@ Workout.init({
     },
 
     workoutName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
+    exOne: {
+        type: DataTypes.STRING,
+    },
+
+    exTwo: {
+        type: DataTypes.STRING,
+    },
+
+    exThree: {
+        type: DataTypes.STRING,
+    },
+
+    exFour: {
+        type: DataTypes.STRING,
+    },
+
+    exFive: {
+        type: DataTypes.STRING,
+    },
+    
+    caloriesBurned: {
+        type: DataTypes.INTEGER
+    },
+
+    timeNeeded: {
+        type: DataTypes.INTEGER
+    },
+
+    notes: {
         type: DataTypes.STRING
-    }
+    },
+
+    workout_number: {
+        type: DataTypes.UUID,
+        defaultValue: UUIDV4
+    },
 
     user_id: {
         type: DataTypes.INTEGER,

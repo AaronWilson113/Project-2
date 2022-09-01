@@ -1,14 +1,14 @@
-<div>
-    <h2>Workouts</h2>
+<div class="continer-fluid text-center">
+    <h2 class="text-decoration-underline">Workouts</h2> <br>
 </div>
 
-<div>
-    <h3>Add Workout</h3>
-    <div>
+<div class="container-fluid text-center">
+    <h3 class="text-decoration-underline">Add Workout</h3> <br>
+    <div class="continer-fluid text-center">
         <form>
             <div>
-                <label for="workoutName">Workout Name</label>
-                <input type="text" id="workoutName" name="workoutName">
+                <label for="workoutName" class="form-label">Workout Name</label>
+                <input type="text" id="workoutName" name="workoutName" class="form-control">
             </div>
             <div>
                 <label for="exOne" class="form-label">Exercise One</label>
@@ -29,14 +29,14 @@
             <div>
                 <label for="exFive" class="form-label">Exercise Five</label>
                 <input type="text" class="form-control" id="exFive">
-            </div>
+            </div> <br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-</div>
+</div> <br>
 
-<div>
-    <h3>Added Workouts</h3>
+<div class="container-fluid text-center">
+    <h3 class="text-decoration-underline">Added Workouts</h3>
     {{#each workout as |workout|}}
     <div>
         <h3>{{workout.workoutName}}</h3>

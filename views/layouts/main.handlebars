@@ -17,9 +17,9 @@
     <div class="collapse navbar-collapse">
       <div class="navbar-nav">
         {{#if loggedIn}}
-        <a class="nav-link text-light" href="/">Home</a>
-        <a class="nav-link text-light" href="../profile.handlebars">Profile</a>
-        <a class="nav-link text-light" href="../workouts.handlebars">Workouts</a>
+        <button type="submit" id="home" class="btn btn-light text-dark">Home</button>
+        <button type="submit" id="Profile" class="btn btn-light text-dark">Profile</button>
+        <button type="submit" id="Workouts" class="btn btn-light text-dark">Workouts</button>
         <button class="btn btn-light text-dark">Logout</button>
         {{else}}
         <a class="nav-link text-light" href="/">Home</a>

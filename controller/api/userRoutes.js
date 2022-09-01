@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 
 
 //user route to get just one user
-router.get('/:id', async (req, res) => {
+router.get('/profile', async (req, res) => {
   // wrapping code in a try to catch errors
   try {
     const userData = await User.findByPk(req.params.id, {
@@ -54,6 +54,7 @@ router.post('/', async (req, res) => {
 
      // setting up session 
      req.session.save(() => {
+      req.session.user_id = userData.id;
       req.session.loggedIn= true;
 
       res.status(200).json(userData)

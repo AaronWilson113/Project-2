@@ -21,4 +21,23 @@ router.get('/signup', async (req, res) => {
     }
 });
 
+// route to render profile page with auth 
+router.get('/profile', async(req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+        });
+
+        const user = userData.get({ plain: true});
+
+        res.render('profile', {
+            ...user,
+            loggedIn: true
+
+        });
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

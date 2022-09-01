@@ -42,11 +42,13 @@ User.init(
         currentWeight: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            defaultValue: 30
         },
 
         goalWeight: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            defaultValue: 30
         }
     },
     {

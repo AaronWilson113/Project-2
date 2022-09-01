@@ -4,20 +4,19 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
 
     //collecting values from login form
-    const username = document.querySelector('#user_Name').value.trim();
+    const userName = document.querySelector('#user_Name').value.trim();
     const password = document.querySelector('#pass_word').value.trim();
 
-    if (username && password) {
+    if (userName && password) {
         const response = await fetch('api/user/login', {
             method: 'POST',
-            body: JSON.stringify({ username, password}),
+            body: JSON.stringify({ userName, password}),
             headers: { 'Content-Type': 'application/json'},
         });
         if (response.ok) {
-            document.location.replace('/')
+            document.location.replace('/profile')
         } else {
             alert(response.statusText);
-            console.log('error');
         }
     }
 };
@@ -27,16 +26,18 @@ const signupFormHandler = async (event) => {
 
     const userName = document.querySelector('#userName').value.trim();
     const password = document.querySelector('#password').value.trim();
+    const currentWeight = document.querySelector('#currentWeight').value.trim();
+    const goalWeight = document.querySelector('#goalWeight').value.trim();
 
     if ( userName && password) {
         const response = await fetch('api/user' , {
             method: 'post',
-            body: JSON.stringify({ userName, password }),
+            body: JSON.stringify({ userName, password, currentWeight, goalWeight}),
             headers: { 'Content-Type': 'application/json'}
         });
 
         if (response.ok) {
-            document.location.replace('/')
+            document.location.replace('/profile')
         } else {
             alert(response.statusText)
             console.log('error');

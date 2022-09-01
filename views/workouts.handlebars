@@ -5,7 +5,7 @@
 <div class="container-fluid text-center">
     <h3 class="text-decoration-underline">Add Workout</h3> <br>
     <div class="continer-fluid text-center">
-        <form>
+        <form class = "form workout-form">
             <div>
                 <label for="workoutName" class="form-label">Workout Name</label>
                 <input type="text" id="workoutName" name="workoutName" class="form-control">
@@ -30,26 +30,24 @@
                 <label for="exFive" class="form-label">Exercise Five</label>
                 <input type="text" class="form-control" id="exFive">
             </div> <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" id="workout" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div> <br>
 
 <div class="container-fluid text-center">
     <h3 class="text-decoration-underline">Added Workouts</h3>
-    {{#each workout as |workout|}}
+    {{#each workouts as |workout|}}
     <div>
         <h3>{{workout.workoutName}}</h3>
         <ul>
-            <li>{{workout.exOne}}</li>
-            <li>{{workout.exTwo}}</li>
-            <li>{{workout.exThree}}</li>
-            <li>{{workout.exFour}}</li>
-            <li>{{workout.exFive}}</li>
-            <li>{{workout.caloriesBurned}}</li>
-            <li>{{workout.timeNeeded}}</li>
-            <li>{{workout.notes}}</li>
+            <li>{{exOne}}</li>
+            <li>{{exTwo}}</li>
+            <li>{{exThree}}</li>
+            <li>{{exFour}}</li>
+            <li>{{exFive}}</li>
         </ul>
     </div>
     {{/each}}
 </div>
+<script src="./js/workout.js"></script>

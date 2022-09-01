@@ -37,9 +37,9 @@
 
 <div class="container-fluid text-center">
     <h3 class="text-decoration-underline">Added Workouts</h3>
-    {{#each workout as |workout|}}
+    {{#each workouts as |workout|}}
     <div>
-        <h3>{{workoutName}}</h3>
+        <h3>{{workout.workoutName}}</h3>
         <ul>
             <li>{{exOne}}</li>
             <li>{{exTwo}}</li>

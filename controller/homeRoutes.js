@@ -74,7 +74,12 @@ router.get('/profile', withAuth, async (req, res) => {
 
       const user = userData.get({ plain: true });
       
+      const workoutData = await Workout.findAll();
+
+      const workouts = workoutData.map((workout) => workout.get({ plain: true}));
+
       res.render('profile', {
+        workouts,
         ...user,
         logged_in: true,
       });

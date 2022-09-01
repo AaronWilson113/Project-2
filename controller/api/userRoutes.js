@@ -25,24 +25,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-//user route to get just one user
-router.get('/profile', async (req, res) => {
-  // wrapping code in a try to catch errors
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [{ model: Workout}],
-    });
-    if (!userData) {
-      res.status(404).json({ message: 'No user found'});
-      return;
-    }
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // Create a user off of user route
 router.post('/', async (req, res) => {
   // wrapping code in a try to catch error codes
@@ -88,26 +70,6 @@ router.put('/:userName', async (req, res) => {
   }
 });
   
-
-// delete a user off of delete user route
-router.delete('/:userName', async (req, res) => {
-  //wrapping code in a try to catch error codes
-  try {
-  // Looks for users based off the give userName and deletes the user instance from the database
-  const userData = await User.destroy({
-    where: {
-      userName: req.params.userName,
-    },
-  });
-  if (!userData) {
-    res.status(404).json({ message: 'No user with this username!'});
-    return;
-  }
-  res.status(200).json(userData);
-} catch (err) {
-  res.status(500).json(err);
-} 
-});
 
 // login off of login route
 router.post('/login', async (req, res) => {

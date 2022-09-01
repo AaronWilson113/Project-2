@@ -21,22 +21,24 @@ router.get('/signup', async (req, res) => {
     }
 });
 
-// route to render profile page with auth 
-router.get('/profile', async(req, res) => {
+// route to render profile page
+router.get('/profile', async (req, res) => {
+    // wrapping code in a try to catch errors
     try {
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-        });
+      const userData = await User.findOne(req.params.userName, {
+        include: [{ model: Workout}],
+      });
 
-        const user = userData.get({ plain: true});
-
-        res.render('profile', {
-            ...user,
-            loggedIn: true
-
-        });
-    } catch(err) {
-        res.status(500).json(err);
+      const user = userData.get({ plain: true });
+      
+      res.render('profile', {
+        ...user,
+        loggedIn: true,
+        weightInput: true,
+        goalWeightInput: true
+      });
+    } catch (err) {
+        res.status(500).json(err)
     }
 });
 

@@ -20,22 +20,32 @@ Workout.init({
 
     exOne: {
         type: DataTypes.STRING,
+        allowNull:true,
+        defaultValue: "0"
     },
 
     exTwo: {
         type: DataTypes.STRING,
+        allowNull:true,
+        defaultValue: "0"
     },
 
     exThree: {
         type: DataTypes.STRING,
+        allowNull:true,
+        defaultValue: "0"
     },
 
     exFour: {
         type: DataTypes.STRING,
+        allowNull:true,
+        defaultValue: "0"
     },
 
     exFive: {
         type: DataTypes.STRING,
+        allowNull:true,
+        defaultValue: "0"
     },
     
     caloriesBurned: {

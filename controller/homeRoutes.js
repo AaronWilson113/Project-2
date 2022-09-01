@@ -30,7 +30,19 @@ router.get('/signup', async (req, res) => {
 // route to render workouts page
 router.get('/workout', async (req, res) => {
     try {
+
+        const workoutData = await Workout.findAll({
+            include: [
+                {
+                    model: User,
+                },
+            ],
+        });
+
+        const workouts = workoutData.map((workout) => workout.get({ plain: true}))
+        
         res.render('workouts', {
+            workouts,
             logged_in: req.session.logged_in
         });
 

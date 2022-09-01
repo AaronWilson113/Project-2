@@ -1,7 +1,7 @@
 // importing neccesary modules 
 const router = require('express').Router();
 const { User, Workout } = require('../models');
-const withAuth = require('../')
+const withAuth = require('../utils/auth')
 
 // route to render homepage
 router.get('/', async (req, res) => {
@@ -22,10 +22,10 @@ router.get('/signup', async (req, res) => {
 });
 
 // route to render profile page
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
     // wrapping code in a try to catch errors
     try {
-      const userData = await User.findOne(req.params.userName, {
+      const userData = await User.findOne(req.session.userName, {
         include: [{ model: Workout}],
       });
 
@@ -34,8 +34,6 @@ router.get('/profile', async (req, res) => {
       res.render('profile', {
         ...user,
         loggedIn: true,
-        weightInput: true,
-        goalWeightInput: true
       });
     } catch (err) {
         res.status(500).json(err)

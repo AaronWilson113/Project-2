@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const bycrypt = require('bcrypt');
 const { Workout } = require('../../models')
+const withAuth = require('../../utils/auth')
 
 // importing model
 const User = require('../../models/User');
@@ -37,39 +38,17 @@ router.post('/', async (req, res) => {
      // setting up session 
      req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.userName = userData.userName
       req.session.loggedIn= true;
 
       res.status(200).json(userData)
     });
   
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   } 
 });
 
-
-
-// Update a user off of username route
-router.put('/:userName', async (req, res) => {
-  //wrapping code in a try to catch error codes
-  try{
-    const userData = await User.update(req.body, {
-      where: {
-        userName: req.params.userName
-      },
-      // designating our hooks to run for our update function
-      individualHooks: true
-    });
-    if (!userData[0]) {
-      res.status(404).json({ message: 'No user with this username!'});
-      return;
-    }
-    res.status(200).json({userData});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-  
 
 // login off of login route
 router.post('/login', async (req, res) => {
@@ -89,15 +68,14 @@ router.post('/login', async (req, res) => {
     }
     // code to start a session
     req.session.save(() => {
+      req.session.user_id = userData.id
       req.session.loggedIn = true;
 
-      res 
-        .status(200)
-        .json({ user: userData, message: 'you are now logged in'})
+      res.json({ user: userData, message: 'You are now logged in!'});
     });
 
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 

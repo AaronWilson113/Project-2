@@ -22,6 +22,7 @@ router.get('/signup', async (req, res) => {
         res.render('signup');
 
         req.session.save(() => {
+
             req.session.loggedIn= true
           });
     } catch(err) {
@@ -34,6 +35,8 @@ router.get('/workout', async (req, res) => {
         res.render('workouts');
 
         req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.userName = userData.userName
             req.session.loggedIn= true
           });
     } catch(err){
